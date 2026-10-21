@@ -511,6 +511,131 @@
       .projects-grid { grid-template-columns: 1fr; }
       .skills-wrapper { grid-template-columns: 1fr; }
     }
+
+    #hero {
+      position: relative;
+      z-index: 2;
+
+      /* Fill the viewport and center the content block. */
+      min-height: 100vh;
+      min-height: 100svh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      /* Balanced padding, with room for the fixed navigation. */
+      padding: 120px 32px;
+
+      /* Solid background covers the grid behind the hero. */
+      background: var(--bg);
+      text-align: center;
+      isolation: isolate;
+    }
+
+    /* No decorative pseudo-elements around the hero. */
+    #hero::before,
+    #hero::after {
+      content: none;
+    }
+
+    #hero .hero-inner {
+      width: 100%;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    /* Label above the name. */
+    #hero .hero-tag {
+      margin: 0 0 32px;
+      font-size: clamp(0.62rem, 1.2vw, 0.78rem);
+      line-height: 1.8;
+      letter-spacing: 0.18em;
+      text-wrap: balance;
+    }
+
+    /* Main name. */
+    #hero .hero-name {
+      margin: 0;
+      font-size: clamp(4rem, 10vw, 8.5rem);
+      font-weight: 300;
+      line-height: 0.98;
+      letter-spacing: -0.035em;
+      text-shadow: none;
+      filter: none;
+    }
+
+    #hero .hero-name em {
+      display: inline-block;
+      padding: 0 0.06em 0.1em;
+    }
+
+    /* Tagline. */
+    #hero .hero-subtitle {
+      margin: 22px 0 0;
+      color: var(--text);
+      font-size: clamp(1.35rem, 2.5vw, 2rem);
+      line-height: 1.35;
+      text-wrap: balance;
+    }
+
+    /* Center the narrower introduction block itself. */
+    #hero .hero-description {
+      max-width: 520px;
+      margin: 28px auto 0;
+      font-size: clamp(0.9rem, 1.3vw, 1rem);
+      line-height: 1.8;
+      text-wrap: pretty;
+    }
+
+    /* Center both buttons as a group. */
+    #hero .hero-ctas {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 36px;
+    }
+
+    /* Mobile layout. */
+    @media (max-width: 560px) {
+      #hero {
+        padding: 104px 20px;
+      }
+
+      #hero .hero-tag {
+        margin-bottom: 26px;
+        letter-spacing: 0.13em;
+      }
+
+      #hero .hero-name {
+        font-size: clamp(3rem, 14vw, 4.8rem);
+      }
+
+      #hero .hero-description {
+        max-width: 340px;
+      }
+
+      #hero .hero-ctas {
+        gap: 12px;
+      }
+
+      #hero .hero-ctas a {
+        padding: 14px 22px;
+      }
+    }
+
+    /* Respect reduced-motion preferences. */
+    @media (prefers-reduced-motion: reduce) {
+      #hero .hero-tag,
+      #hero .hero-name,
+      #hero .hero-subtitle,
+      #hero .hero-description,
+      #hero .hero-ctas {
+        animation: none;
+        opacity: 1;
+        transform: none;
+      }
+    }
   </style>
 </head>
 <body>
@@ -534,45 +659,26 @@
   <!-- HERO -->
   <section id="hero">
     <div class="hero-inner">
-      <p class="hero-tag">// Data Analyst · AI & Business Analytics</p>
+      <p class="hero-tag">Data Analyst · AI & Business Analytics</p>
+
       <h1 class="hero-name">
         Francisco<br><em>Rezzonico</em>
       </h1>
+
       <p class="hero-subtitle">Turning data into decisions</p>
+
       <p class="hero-description">
         Graduate student in Business Analytics &amp; AI at American University.
         Passionate about extracting meaning from complex data and building
         tools that make analysis accessible.
       </p>
+
       <div class="hero-ctas">
         <a href="#projects" class="btn-primary">View Projects</a>
         <a href="#contact" class="btn-secondary">Get in Touch</a>
       </div>
     </div>
-
-    <!--
-    <div class="hero-stats">
-      <div class="stat">
-        <span class="stat-num">4.00</span>
-        <span class="stat-label">Current GPA</span>
-      </div>
-      <div class="stat">
-        <span class="stat-num">3+</span>
-        <span class="stat-label">Years Experience</span>
-      </div>
-      <div class="stat">
-        <span class="stat-num">3</span>
-        <span class="stat-label">Countries Studied</span>
-      </div>
-    </div>
-
-    <div class="hero-scroll-indicator">
-      <span class="scroll-label">Scroll</span>
-      <div class="scroll-line"></div>
-    </div>
-    -->
   </section>
-
 
   <!-- ABOUT -->
   <section id="about">
